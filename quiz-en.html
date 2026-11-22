@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Check · How to Be a Qualified Special Olympics Volunteer</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#EEF2F7;color:#16283F;
+ font-family:Arial,"Microsoft YaHei","PingFang SC",sans-serif;
+ -webkit-text-size-adjust:100%;line-height:1.6}
+.bar{background:#123A63;color:#fff;padding:14px 18px;display:flex;
+ align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar h1{font-size:16px;margin:0;font-weight:700}
+.bar a{color:#DDEAF6;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.4);
+ border-radius:8px;padding:6px 10px;white-space:nowrap}
+.wrap{max-width:760px;margin:0 auto;padding:20px 14px 40px}
+.meta{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.tag{background:#1B62A6;color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px}
+.prog{flex:1;min-width:120px;height:7px;border-radius:7px;background:#D8E3EE;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:#D43B3B;transition:width .35s ease}
+.count{font-size:13px;color:#5A6B80;font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:#fff;border:1px solid #D8E3EE;border-radius:14px;
+ box-shadow:0 14px 44px rgba(20,45,80,.10);padding:18px 20px 22px}
+.ill{width:100%;max-width:260px;display:block;margin:0 auto 12px}
+.qcat{font-size:12px;color:#D43B3B;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.qtitle{font-size:18px;font-weight:700;margin:6px 0 16px;color:#123A63;line-height:1.55}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;
+ font:inherit;font-size:15px;color:#16283F;background:#F8FAFD;border:1.5px solid #D8E3EE;
+ border-radius:10px;padding:12px 14px;cursor:pointer;transition:.16s}
+.opt:hover:not(:disabled){border-color:#1B62A6;background:#EAF2FA}
+.opt:focus-visible{outline:3px solid #F5B841;outline-offset:2px}
+.opt .k{flex:none;width:26px;height:26px;border-radius:7px;background:#E7EEF6;color:#123A63;
+ font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.opt.correct{border-color:#1B8A5A;background:#E8F6EE}
+.opt.correct .k{background:#1B8A5A;color:#fff}
+.opt.wrong{border-color:#D43B3B;background:#FDEDEA}
+.opt.wrong .k{background:#D43B3B;color:#fff}
+.opt:disabled{cursor:default}
+.fb{margin-top:14px;border-radius:10px;padding:12px 14px;font-size:14px;display:none}
+.fb.show{display:block}
+.fb.ok{background:#E8F6EE;border-left:4px solid #1B8A5A}
+.fb.no{background:#FDEDEA;border-left:4px solid #D43B3B}
+.fb b{display:block;margin-bottom:3px}
+.fb.ok b{color:#1B8A5A}
+.fb.no b{color:#D43B3B}
+.acts{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{font:inherit;font-size:15px;font-weight:700;border:0;border-radius:10px;
+ padding:12px 22px;cursor:pointer;transition:.16s}
+.btn.pri{background:#D43B3B;color:#fff}
+.btn.pri:hover{background:#b93228}
+.btn.sec{background:#EAF2FA;color:#123A63;border:1px solid #D8E3EE}
+.btn[hidden]{display:none}
+.btn:focus-visible{outline:3px solid #F5B841;outline-offset:2px}
+.hero{text-align:center;padding:8px 0 18px}
+.hero h2{font-size:23px;color:#123A63;margin:8px 0}
+.hero p{color:#5A6B80;margin:6px 0;font-size:14px}
+.hero .big{width:100%;max-width:300px;margin:6px auto 0;display:block}
+.badge{display:inline-block;font-size:16px;font-weight:700;border-radius:999px;
+ padding:8px 24px;margin:4px 0 10px}
+.badge.pass{background:#E8F6EE;color:#1B8A5A}
+.badge.fail{background:#FBF1DC;color:#A86E00}
+.score{font-size:46px;font-weight:800;color:#D43B3B;line-height:1.1}
+.score small{font-size:18px;color:#5A6B80;font-weight:600}
+.quote{margin:14px auto;max-width:600px;background:#FBF1DC;border-radius:10px;
+ padding:14px 18px;font-size:16px;font-weight:700;color:#123A63}
+.review{margin-top:18px;border-top:1px solid #D8E3EE;padding-top:14px;text-align:left}
+.review h3{font-size:15px;color:#123A63;margin:0 0 8px}
+.review .ri{font-size:14px;border-left:3px solid #D43B3B;padding:6px 0 6px 12px;margin-bottom:8px;color:#5A6B80}
+.review .ri b{color:#16283F}
+details.more{margin-top:16px;border:1px solid #D8E3EE;border-radius:10px;background:#F8FAFD}
+details.more summary{cursor:pointer;padding:12px 16px;font-weight:700;color:#123A63;font-size:14px}
+details.more .body{padding:0 16px 14px;font-size:13.5px;color:#5A6B80}
+details.more .body div{padding:8px 0;border-top:1px solid #E7EEF6}
+details.more .body b{color:#1B8A5A}
+.foot{text-align:center;color:#8492A4;font-size:12px;margin-top:18px;line-height:1.7}
+@media(max-width:420px){
+ .bar h1{font-size:14px}
+ .qtitle{font-size:16px}
+ .opt{font-size:14px;padding:10px 12px}
+ .acts .btn{flex:1;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+ <h1>Self-Check · How to Be a Qualified Special Olympics Volunteer</h1>
+ <a href="volunteer-en.html#p=21">Back to guide</a>
+</div>
+<div class="wrap">
+
+ <section id="home">
+  <div class="hero">
+   <svg class="big" viewBox="0 0 300 170" role="img" aria-label="A volunteer with a Special Olympics athlete">
+    <rect x="1" y="1" width="298" height="168" rx="16" fill="#EAF2FA" stroke="#D8E3EE"/>
+    <circle cx="150" cy="30" r="13" fill="#F5B841"/>
+    <circle cx="92" cy="78" r="17" fill="#F2C9A0"/><path d="M62 138c0-19 13-33 30-33s30 14 30 33" fill="#1B62A6"/>
+    <circle cx="208" cy="78" r="17" fill="#F2C9A0"/><path d="M178 138c0-19 13-33 30-33s30 14 30 33" fill="#D43B3B"/>
+    <path d="M112 106c14-10 26-10 38 0" stroke="#123A63" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="148" cy="96" r="5" fill="#D43B3B"/>
+   </svg>
+   <h2>Self-Check</h2>
+   <p>Are you a qualified Special Olympics volunteer?</p>
+   <p>10 scenario questions · 6 or more correct to pass</p>
+  </div>
+  <div class="card" style="text-align:center">
+   <button class="btn pri" id="start">Start the quiz →</button>
+  </div>
+  <div class="foot">Based on the "How to Be a Qualified Special Olympics Volunteer" training material. Illustrations are original.</div>
+ </section>
+
+ <section id="quiz" hidden>
+  <div class="meta">
+   <span class="tag" id="cat">Question 1 / 10</span>
+   <div class="prog"><i id="fill"></i></div>
+   <span class="count"><b id="score">0</b> / 10 pts</span>
+  </div>
+  <div class="card">
+   <div id="ill"></div>
+   <div class="qcat" id="qcat"></div>
+   <div class="qtitle" id="qtitle"></div>
+   <div class="opts" id="opts"></div>
+   <div class="fb" id="fb"><b id="verdict"></b><span id="exp"></span></div>
+   <div class="acts">
+    <button class="btn pri" id="next" hidden>Next question →</button>
+    <button class="btn sec" id="quit">Exit quiz</button>
+   </div>
+  </div>
+ </section>
+
+ <section id="result" hidden>
+  <div class="card" style="text-align:center">
+   <div class="badge" id="badge"></div>
+   <div class="score"><span id="final">0</span><small> / 10 correct</small></div>
+   <div class="quote" id="quote"></div>
+   <div class="acts" style="justify-content:center">
+    <button class="btn pri" id="retry">Try again</button>
+    <button class="btn sec" id="back">Back to guide</button>
+   </div>
+   <div class="review" id="review" hidden><h3>Questions to review</h3><div id="reviewList"></div></div>
+  </div>
+  <details class="more"><summary>Show all answers (10 questions)</summary><div class="body" id="answerAll"></div></details>
+  <div class="foot">Based on the "How to Be a Qualified Special Olympics Volunteer" training material. Illustrations are original.</div>
+ </section>
+
+</div>
+<script>
+(function(){
+ 'use strict';
+ var ILL = {
+ all:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="100" cy="24" r="10" fill="#F5B841"/><circle cx="66" cy="66" r="14" fill="#F2C9A0"/><path d="M40 118c0-16 12-28 26-28s26 12 26 28" fill="#1B62A6"/><circle cx="134" cy="66" r="14" fill="#F2C9A0"/><path d="M108 118c0-16 12-28 26-28s26 12 26 28" fill="#D43B3B"/><path d="M82 90c12-8 24-8 36 0" stroke="#123A63" stroke-width="4" fill="none" stroke-linecap="round"/></svg>',
+ water:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><rect x="48" y="42" width="30" height="58" rx="8" fill="#1B62A6"/><rect x="54" y="30" width="18" height="12" rx="4" fill="#123A63"/><path d="M56 62h14M56 74h14" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M96 52h56v40c0 9-8 16-17 16h-22c-9 0-17-7-17-16z" fill="#D43B3B"/><path d="M104 68h40" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="160" cy="52" r="12" fill="#F2C9A0"/><path d="M144 100c0-12 7-20 16-20s16 8 16 20" fill="#F5B841"/></svg>',
+ cheer:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="100" cy="44" r="15" fill="#F2C9A0"/><path d="M78 118c0-20 10-34 22-34s22 14 22 34" fill="#1B62A6"/><path d="M80 96L50 64M120 96l30-32" stroke="#F2C9A0" stroke-width="11" stroke-linecap="round"/><path d="M40 58l12 8M160 58l-12 8" stroke="#D43B3B" stroke-width="4" stroke-linecap="round"/><circle cx="36" cy="48" r="4" fill="#F5B841"/><circle cx="164" cy="48" r="4" fill="#F5B841"/></svg>',
+ chat:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="62" cy="62" r="15" fill="#F2C9A0"/><path d="M36 118c0-18 11-30 26-30s26 12 26 30" fill="#1B62A6"/><circle cx="142" cy="62" r="15" fill="#F2C9A0"/><path d="M116 118c0-18 11-30 26-30s26 12 26 30" fill="#D43B3B"/><rect x="78" y="26" width="46" height="25" rx="8" fill="#fff" stroke="#123A63" stroke-width="2"/><path d="M88 38h26" stroke="#1B62A6" stroke-width="3" stroke-linecap="round"/><path d="M100 51l-6 9 12-9z" fill="#fff" stroke="#123A63" stroke-width="2"/></svg>',
+ equal:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><path d="M24 62h152" stroke="#BFD3E8" stroke-width="2" stroke-dasharray="5 5"/><circle cx="66" cy="50" r="14" fill="#F2C9A0"/><path d="M42 118c0-17 11-29 24-29s24 12 24 29" fill="#1B62A6"/><circle cx="134" cy="50" r="14" fill="#F2C9A0"/><path d="M110 118c0-17 11-29 24-29s24 12 24 29" fill="#D43B3B"/><path d="M82 50h36" stroke="#D43B3B" stroke-width="3" stroke-linecap="round"/><circle cx="82" cy="50" r="3" fill="#D43B3B"/><circle cx="118" cy="50" r="3" fill="#D43B3B"/></svg>',
+ demo:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="64" cy="48" r="14" fill="#F2C9A0"/><path d="M40 118c0-17 11-29 24-29s24 12 24 29" fill="#1B62A6"/><circle cx="142" cy="62" r="13" fill="#F2C9A0"/><path d="M120 118c0-16 10-27 22-27s22 11 22 27" fill="#F5B841"/><path d="M84 66c12-8 22-8 32-2" stroke="#D43B3B" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M112 58l8 6-9 5z" fill="#D43B3B"/></svg>',
+ loop:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><path d="M78 52a30 30 0 1 1 10 34" stroke="#1B62A6" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M72 38l16 14-18 9" stroke="#D43B3B" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M136 44l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z" fill="#F5B841"/></svg>',
+ slow:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><rect x="34" y="30" width="96" height="52" rx="12" fill="#fff" stroke="#123A63" stroke-width="2"/><path d="M50 48h60M50 62h40" stroke="#1B62A6" stroke-width="4" stroke-linecap="round"/><path d="M74 82l-8 14 20-14z" fill="#fff" stroke="#123A63" stroke-width="2"/><circle cx="156" cy="56" r="18" fill="#F5B841"/><path d="M150 56h12M156 50v12" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>',
+ differ:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="50" cy="54" r="13" fill="#F2C9A0"/><path d="M28 118c0-16 10-27 22-27s22 11 22 27" fill="#D43B3B"/><path d="M44 52l4 4 8-8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="100" cy="54" r="13" fill="#F2C9A0"/><path d="M78 118c0-16 10-27 22-27s22 11 22 27" fill="#1B62A6"/><circle cx="150" cy="54" r="13" fill="#F2C9A0"/><path d="M128 118c0-16 10-27 22-27s22 11 22 27" fill="#F5B841"/><path d="M144 60c4 4 8 4 12 0" stroke="#123A63" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+ safe:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="62" cy="86" r="13" fill="#F2C9A0"/><path d="M40 120c0-14 10-24 22-24s22 10 22 24" fill="#F5B841"/><circle cx="142" cy="54" r="14" fill="#F2C9A0"/><path d="M118 120c0-18 11-30 24-30s24 12 24 30" fill="#1B62A6"/><path d="M118 78l-24 18" stroke="#F2C9A0" stroke-width="9" stroke-linecap="round"/><rect x="98" y="16" width="24" height="24" rx="6" fill="#D43B3B"/><path d="M110 22v12M104 28h12" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>',
+ door:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><rect x="70" y="20" width="60" height="100" rx="4" fill="#fff" stroke="#123A63" stroke-width="3"/><circle cx="120" cy="72" r="3" fill="#123A63"/><circle cx="46" cy="66" r="12" fill="#F2C9A0"/><path d="M26 116c0-14 9-24 20-24s20 10 20 24" fill="#1B62A6"/><circle cx="154" cy="66" r="12" fill="#F2C9A0"/><path d="M134 116c0-14 9-24 20-24s20 10 20 24" fill="#D43B3B"/><path d="M60 44h20M120 44h20" stroke="#BFD3E8" stroke-width="3" stroke-dasharray="4 4"/></svg>'
+ };
+
+ var QS = [
+ {cat:'Logistics', icon:'water', q:'At a competition, a Special Olympics athlete finishes a race sweating and looking for water. As a volunteer, what is the most appropriate action?',
+  opts:['Step aside and wait for staff to handle it','Proactively offer drinking water and a sports towel, and check whether more help is needed','Take the athlete straight to the medical room','Keep your own water and look elsewhere first'], a:1,
+  exp:'The guide lists logistics tasks such as handing out drinking water and uniforms, delivering sports towels and looking after personal belongings. A good volunteer offers help proactively.'},
+ {cat:'Cheering', icon:'cheer', q:'An athlete looks nervous at the starting line. What would help most?',
+  opts:['Stay completely silent','Point out every flaw in the athlete\'s technique loudly','Cheer warmly from the sidelines to build the athlete\'s confidence','Ask the referee to withdraw the athlete'], a:2,
+  exp:'The guide says cheering from the sidelines sparks athletes\' enthusiasm and confidence, helping them experience the joy of Special Olympics.'},
+ {cat:'Friendship', icon:'chat', q:'Before an event, an athlete keeps her head down and says nothing. What would you do?',
+  opts:['Keep asking, "Are you scared?"','Talk with the athlete gently to ease the nervousness and become a friend','Leave the athlete alone in a corner','Compare the athlete with other competitors'], a:1,
+  exp:'The guide explains that by talking with athletes, volunteers can ease their nervousness and become their friends.'},
+ {cat:'Communication', icon:'equal', q:'You are supporting a student with an intellectual disability. Which approach is most appropriate?',
+  opts:['Stand over the student and give quick instructions','Get down to the student\'s eye level, treat them as an equal, and find out what they want','Decide everything for the student without asking','Repeatedly force the student to follow instructions'], a:1,
+  exp:'The guide says to meet students with intellectual disabilities as equals, never talk down to them, find out what they want, and never force them to follow instructions.'},
+ {cat:'Techniques', icon:'demo', q:'You are teaching an athlete a new movement. How should you explain it?',
+  opts:['Explain the theory with detailed professional terms','Use simple, direct language and demonstrate while explaining','Speak as quickly as possible to save time','Say it once and let the athlete work it out alone'], a:1,
+  exp:'The guide recommends simple, direct language without abstract words, and demonstrating before asking — showing while explaining, combining words with action.'},
+ {cat:'Practice', icon:'loop', q:'An athlete still cannot remember the movement after several attempts. What would you do?',
+  opts:['Blame the athlete for not concentrating','Use small steps and frequent cycles, with steady encouragement','Give up and let the athlete do something else','Explain the whole sequence once, all at once'], a:1,
+  exp:'The guide advises repeating and reinforcing through practice using small steps and frequent cycles, and sustaining interest with constant encouragement or small rewards.'},
+ {cat:'Pace', icon:'slow', q:'An athlete processes information slowly. How should you explain the rules?',
+  opts:['Speak gently and slowly, saying each sentence slowly and repeating it several times','Say everything very fast several times','Say it once, but louder','Ask another volunteer to explain instead'], a:0,
+  exp:'The guide says to speak gently and slowly, say each sentence slowly and repeat it several times.'},
+ {cat:'Individual needs', icon:'differ', q:'A shy student and a very outgoing student join the same activity. What would you do?',
+  opts:['Treat every student in exactly the same way','Adapt to each student — give the shy one more patience and encouragement','Pay attention only to the outgoing student','Let them manage on their own'], a:1,
+  exp:'The guide says to treat each student differently — the friendly, the shy, the withdrawn, and so on.'},
+ {cat:'Safety', icon:'safe', q:'During an activity, an athlete falls over. According to the safety guidelines, what should you do first?',
+  opts:['Lift the athlete up yourself and carry on with the activity','Secure the athlete\'s safety first and seek help from staff immediately','Take photos of the scene first','Ask other athletes to help'], a:1,
+  exp:'The guidelines state that if an incident occurs, you should secure the athlete\'s safety first and seek help from staff immediately.'},
+ {cat:'Safety boundary', icon:'door', q:'After an activity, an athlete invites you into a closed room to talk alone. What is the safer choice?',
+  opts:['Agree — a one-to-one talk is more private','Politely decline — avoid being alone indoors with a single athlete','Close the door but leave a window open','Wait outside while the athlete goes in'], a:1,
+  exp:'The guidelines state that, as far as possible, volunteers should not be alone indoors with a single athlete.'}
+ ];
+
+ function cheers(s){
+  if(s===10) return 'Full marks! You have every key point of good volunteering covered — you are ready to go!';
+  if(s===9) return 'Outstanding! Just one away from full marks — your understanding is excellent.';
+  if(s===8) return 'Great work! You already have a solid grasp of what makes a good volunteer.';
+  if(s===7) return 'Well done! You have the key points covered; review the questions you missed and you will be even stronger.';
+  if(s===6) return 'Passed! You have the essential knowledge to be a Special Olympics volunteer. Well done for taking the challenge!';
+  if(s===5) return 'So close to passing! Review the explanations and try again — you can do it.';
+  if(s===4) return 'Keep going! Revisit the volunteering techniques and safety guidelines and you will improve quickly.';
+  if(s===3) return 'Every step counts. Re-read the guide and then give it another try.';
+  if(s===2) return 'Do not be discouraged — being brave in the attempt is already a win. Take another look at the guide.';
+  if(s===1) return 'Even starting from scratch is a gain. Read the explanations and try again.';
+  return 'Being brave in the attempt is a win. Read the answers, then have another go.';
+ }
+
+ var L=['A','B','C','D'], i=0, score=0, locked=false, wrongSel={};
+ var $=function(id){return document.getElementById(id);};
+ function view(id){['home','quiz','result'].forEach(function(v){$(v).hidden=(v!==id);});window.scrollTo(0,0);}
+ function buildAll(){
+  var h='';
+  QS.forEach(function(it,n){
+   h+='<div><b>'+(n+1)+'. '+it.q+'</b><br>'+it.opts.map(function(o,j){return L[j]+'. '+o;}).join(' &nbsp; ')+
+      '<br><b>Answer: '+L[it.a]+'</b> — '+it.exp+'</div>';
+  });
+  $('answerAll').innerHTML=h;
+ }
+ function render(){
+  var it=QS[i]; locked=false;
+  $('cat').textContent=(i+1===10?'Question 10 / 10':'Question '+(i+1)+' / 10');
+  $('fill').style.width=(i/10*100)+'%';
+  $('score').textContent=score;
+  $('ill').innerHTML=ILL[it.icon]||'';
+  $('qcat').textContent=it.cat;
+  $('qtitle').textContent=it.q;
+  var box=$('opts'); box.innerHTML='';
+  it.opts.forEach(function(t,j){
+   var b=document.createElement('button'); b.className='opt'; b.type='button';
+   b.innerHTML='<span class="k">'+L[j]+'</span><span>'+t+'</span>';
+   b.addEventListener('click',function(){answer(j,b);});
+   box.appendChild(b);
+  });
+  $('fb').className='fb'; $('next').hidden=true;
+ }
+ function answer(c,btn){
+  if(locked)return; locked=true; wrongSel[i]=c;
+  var it=QS[i], right=it.a, all=$('opts').children, j;
+  for(j=0;j<all.length;j++) all[j].disabled=true;
+  if(c===right){score++;btn.classList.add('correct');}
+  else{btn.classList.add('wrong');all[right].classList.add('correct');}
+  $('score').textContent=score;
+  var fb=$('fb'); fb.className='fb show '+(c===right?'ok':'no');
+  $('verdict').textContent=c===right?'Correct!':'Not quite — think again';
+  $('exp').textContent=(c===right?'':'The correct answer is '+L[right]+'. ')+it.exp;
+  $('next').textContent=(i===9)?'See results →':'Next question →';
+  $('next').hidden=false; $('next').focus();
+ }
+ function next(){if(i<9){i++;render();}else result();}
+ function result(){
+  view('result'); $('fill').style.width='100%';
+  var pass=score>=6;
+  $('badge').className='badge '+(pass?'pass':'fail');
+  $('badge').textContent=pass?'Passed ✓':'Keep going';
+  $('final').textContent=score;
+  $('quote').textContent=cheers(score);
+  var wrong=[]; QS.forEach(function(it,n){if(wrongSel[n]!==undefined&&wrongSel[n]!==it.a)wrong.push(n);});
+  if(wrong.length){
+   var h=''; wrong.forEach(function(n){h+='<div class="ri"><b>'+(n+1)+'. '+QS[n].q+'</b><br>Your answer: '+L[wrongSel[n]]+' &nbsp; Correct answer: '+L[QS[n].a]+'</div>';});
+   $('reviewList').innerHTML=h; $('review').hidden=false;
+  }else{$('review').hidden=true;}
+ }
+ function start(){i=0;score=0;wrongSel={};view('quiz');render();}
+
+ $('start').addEventListener('click',start);
+ $('retry').addEventListener('click',start);
+ $('next').addEventListener('click',next);
+ $('quit').addEventListener('click',function(){view('home');});
+ $('back').setAttribute('href','volunteer-en.html#p=21');
+ document.addEventListener('keydown',function(e){
+  if($('quiz').hidden)return;
+  var k=e.key||e.keyCode;
+  if(!locked&&/^[1-4]$/.test(k)){var b=$('opts').children[+k-1];if(b)b.click();}
+  else if(!locked&&/^[a-d]$/i.test(k)){var b2=$('opts').children[L.indexOf(k.toUpperCase())];if(b2)b2.click();}
+  else if(locked&&(k==='Enter'||k==='ArrowRight'))next();
+ });
+ buildAll(); view('home');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自我考核 · 如何做好特奥志愿者</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#EEF2F7;color:#16283F;
+ font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;
+ -webkit-text-size-adjust:100%;line-height:1.6}
+.bar{background:#123A63;color:#fff;padding:14px 18px;display:flex;
+ align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bar h1{font-size:17px;margin:0;font-weight:700}
+.bar a{color:#DDEAF6;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.4);
+ border-radius:8px;padding:6px 10px;white-space:nowrap}
+.wrap{max-width:760px;margin:0 auto;padding:20px 14px 40px}
+.meta{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.tag{background:#1B62A6;color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px}
+.prog{flex:1;min-width:120px;height:7px;border-radius:7px;background:#D8E3EE;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:#D43B3B;transition:width .35s ease}
+.count{font-size:13px;color:#5A6B80;font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:#fff;border:1px solid #D8E3EE;border-radius:14px;
+ box-shadow:0 14px 44px rgba(20,45,80,.10);padding:18px 20px 22px}
+.ill{width:100%;max-width:260px;display:block;margin:0 auto 12px}
+.qcat{font-size:12px;color:#D43B3B;font-weight:700;letter-spacing:.06em}
+.qtitle{font-size:19px;font-weight:700;margin:6px 0 16px;color:#123A63;line-height:1.55}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;
+ font:inherit;font-size:15px;color:#16283F;background:#F8FAFD;border:1.5px solid #D8E3EE;
+ border-radius:10px;padding:12px 14px;cursor:pointer;transition:.16s}
+.opt:hover:not(:disabled){border-color:#1B62A6;background:#EAF2FA}
+.opt:focus-visible{outline:3px solid #F5B841;outline-offset:2px}
+.opt .k{flex:none;width:26px;height:26px;border-radius:7px;background:#E7EEF6;color:#123A63;
+ font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.opt.correct{border-color:#1B8A5A;background:#E8F6EE}
+.opt.correct .k{background:#1B8A5A;color:#fff}
+.opt.wrong{border-color:#D43B3B;background:#FDEDEA}
+.opt.wrong .k{background:#D43B3B;color:#fff}
+.opt:disabled{cursor:default}
+.fb{margin-top:14px;border-radius:10px;padding:12px 14px;font-size:14px;display:none}
+.fb.show{display:block}
+.fb.ok{background:#E8F6EE;border-left:4px solid #1B8A5A}
+.fb.no{background:#FDEDEA;border-left:4px solid #D43B3B}
+.fb b{display:block;margin-bottom:3px}
+.fb.ok b{color:#1B8A5A}
+.fb.no b{color:#D43B3B}
+.acts{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{font:inherit;font-size:15px;font-weight:700;border:0;border-radius:10px;
+ padding:12px 22px;cursor:pointer;transition:.16s}
+.btn.pri{background:#D43B3B;color:#fff}
+.btn.pri:hover{background:#b93228}
+.btn.sec{background:#EAF2FA;color:#123A63;border:1px solid #D8E3EE}
+.btn[hidden]{display:none}
+.btn:focus-visible{outline:3px solid #F5B841;outline-offset:2px}
+.hero{text-align:center;padding:8px 0 18px}
+.hero h2{font-size:24px;color:#123A63;margin:8px 0}
+.hero p{color:#5A6B80;margin:6px 0;font-size:14px}
+.hero .big{width:100%;max-width:300px;margin:6px auto 0;display:block}
+.badge{display:inline-block;font-size:16px;font-weight:700;border-radius:999px;
+ padding:8px 24px;margin:4px 0 10px}
+.badge.pass{background:#E8F6EE;color:#1B8A5A}
+.badge.fail{background:#FBF1DC;color:#A86E00}
+.score{font-size:46px;font-weight:800;color:#D43B3B;line-height:1.1}
+.score small{font-size:18px;color:#5A6B80;font-weight:600}
+.quote{margin:14px auto;max-width:600px;background:#FBF1DC;border-radius:10px;
+ padding:14px 18px;font-size:16px;font-weight:700;color:#123A63}
+.review{margin-top:18px;border-top:1px solid #D8E3EE;padding-top:14px;text-align:left}
+.review h3{font-size:15px;color:#123A63;margin:0 0 8px}
+.review .ri{font-size:14px;border-left:3px solid #D43B3B;padding:6px 0 6px 12px;margin-bottom:8px;color:#5A6B80}
+.review .ri b{color:#16283F}
+details.more{margin-top:16px;border:1px solid #D8E3EE;border-radius:10px;background:#F8FAFD}
+details.more summary{cursor:pointer;padding:12px 16px;font-weight:700;color:#123A63;font-size:14px}
+details.more .body{padding:0 16px 14px;font-size:13.5px;color:#5A6B80}
+details.more .body div{padding:8px 0;border-top:1px solid #E7EEF6}
+details.more .body b{color:#1B8A5A}
+.foot{text-align:center;color:#8492A4;font-size:12px;margin-top:18px;line-height:1.7}
+@media(max-width:420px){
+ .bar h1{font-size:15px}
+ .qtitle{font-size:17px}
+ .opt{font-size:14px;padding:10px 12px}
+ .acts .btn{flex:1;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+ <h1>自我考核 · 如何做好特奥志愿者</h1>
+ <a href="volunteer-zh.html#p=21">返回说明</a>
+</div>
+<div class="wrap">
+
+ <section id="home">
+  <div class="hero">
+   <svg class="big" viewBox="0 0 300 170" role="img" aria-label="志愿者与特奥运动员在一起">
+    <rect x="1" y="1" width="298" height="168" rx="16" fill="#EAF2FA" stroke="#D8E3EE"/>
+    <circle cx="150" cy="30" r="13" fill="#F5B841"/>
+    <circle cx="92" cy="78" r="17" fill="#F2C9A0"/><path d="M62 138c0-19 13-33 30-33s30 14 30 33" fill="#1B62A6"/>
+    <circle cx="208" cy="78" r="17" fill="#F2C9A0"/><path d="M178 138c0-19 13-33 30-33s30 14 30 33" fill="#D43B3B"/>
+    <path d="M112 106c14-10 26-10 38 0" stroke="#123A63" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="148" cy="96" r="5" fill="#D43B3B"/>
+   </svg>
+   <h2>自我考核</h2>
+   <p>你是否已成为了合格的特奥志愿者？</p>
+   <p>10 道情境小题 · 答对 6 题及以上即为合格</p>
+  </div>
+  <div class="card" style="text-align:center">
+   <button class="btn pri" id="start">开始考核 →</button>
+  </div>
+  <div class="foot">内容依据《如何做好特奥志愿者》培训资料整理；插图为原创示意图。</div>
+ </section>
+
+ <section id="quiz" hidden>
+  <div class="meta">
+   <span class="tag" id="cat">情境题</span>
+   <div class="prog"><i id="fill"></i></div>
+   <span class="count"><b id="score">0</b> / 10 分</span>
+  </div>
+  <div class="card">
+   <div id="ill"></div>
+   <div class="qcat" id="qcat"></div>
+   <div class="qtitle" id="qtitle"></div>
+   <div class="opts" id="opts"></div>
+   <div class="fb" id="fb"><b id="verdict"></b><span id="exp"></span></div>
+   <div class="acts">
+    <button class="btn pri" id="next" hidden>下一题 →</button>
+    <button class="btn sec" id="quit">退出考核</button>
+   </div>
+  </div>
+ </section>
+
+ <section id="result" hidden>
+  <div class="card" style="text-align:center">
+   <div class="badge" id="badge"></div>
+   <div class="score"><span id="final">0</span><small> / 10 题答对</small></div>
+   <div class="quote" id="quote"></div>
+   <div class="acts" style="justify-content:center">
+    <button class="btn pri" id="retry">再测一次</button>
+    <button class="btn sec" id="back">返回说明</button>
+   </div>
+   <div class="review" id="review" hidden><h3>错题回顾</h3><div id="reviewList"></div></div>
+  </div>
+  <details class="more"><summary>展开答案一览（10 题）</summary><div class="body" id="answerAll"></div></details>
+  <div class="foot">内容依据《如何做好特奥志愿者》培训资料整理；插图为原创示意图。</div>
+ </section>
+
+</div>
+<script>
+(function(){
+ 'use strict';
+ var ILL = {
+ all:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="100" cy="24" r="10" fill="#F5B841"/><circle cx="66" cy="66" r="14" fill="#F2C9A0"/><path d="M40 118c0-16 12-28 26-28s26 12 26 28" fill="#1B62A6"/><circle cx="134" cy="66" r="14" fill="#F2C9A0"/><path d="M108 118c0-16 12-28 26-28s26 12 26 28" fill="#D43B3B"/><path d="M82 90c12-8 24-8 36 0" stroke="#123A63" stroke-width="4" fill="none" stroke-linecap="round"/></svg>',
+ water:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><rect x="48" y="42" width="30" height="58" rx="8" fill="#1B62A6"/><rect x="54" y="30" width="18" height="12" rx="4" fill="#123A63"/><path d="M56 62h14M56 74h14" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M96 52h56v40c0 9-8 16-17 16h-22c-9 0-17-7-17-16z" fill="#D43B3B"/><path d="M104 68h40" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="160" cy="52" r="12" fill="#F2C9A0"/><path d="M144 100c0-12 7-20 16-20s16 8 16 20" fill="#F5B841"/></svg>',
+ cheer:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="100" cy="44" r="15" fill="#F2C9A0"/><path d="M78 118c0-20 10-34 22-34s22 14 22 34" fill="#1B62A6"/><path d="M80 96L50 64M120 96l30-32" stroke="#F2C9A0" stroke-width="11" stroke-linecap="round"/><path d="M40 58l12 8M160 58l-12 8" stroke="#D43B3B" stroke-width="4" stroke-linecap="round"/><circle cx="36" cy="48" r="4" fill="#F5B841"/><circle cx="164" cy="48" r="4" fill="#F5B841"/></svg>',
+ chat:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="62" cy="62" r="15" fill="#F2C9A0"/><path d="M36 118c0-18 11-30 26-30s26 12 26 30" fill="#1B62A6"/><circle cx="142" cy="62" r="15" fill="#F2C9A0"/><path d="M116 118c0-18 11-30 26-30s26 12 26 30" fill="#D43B3B"/><rect x="78" y="26" width="46" height="25" rx="8" fill="#fff" stroke="#123A63" stroke-width="2"/><path d="M88 38h26" stroke="#1B62A6" stroke-width="3" stroke-linecap="round"/><path d="M100 51l-6 9 12-9z" fill="#fff" stroke="#123A63" stroke-width="2"/></svg>',
+ equal:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><path d="M24 62h152" stroke="#BFD3E8" stroke-width="2" stroke-dasharray="5 5"/><circle cx="66" cy="50" r="14" fill="#F2C9A0"/><path d="M42 118c0-17 11-29 24-29s24 12 24 29" fill="#1B62A6"/><circle cx="134" cy="50" r="14" fill="#F2C9A0"/><path d="M110 118c0-17 11-29 24-29s24 12 24 29" fill="#D43B3B"/><path d="M82 50h36" stroke="#D43B3B" stroke-width="3" stroke-linecap="round"/><circle cx="82" cy="50" r="3" fill="#D43B3B"/><circle cx="118" cy="50" r="3" fill="#D43B3B"/></svg>',
+ demo:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="64" cy="48" r="14" fill="#F2C9A0"/><path d="M40 118c0-17 11-29 24-29s24 12 24 29" fill="#1B62A6"/><circle cx="142" cy="62" r="13" fill="#F2C9A0"/><path d="M120 118c0-16 10-27 22-27s22 11 22 27" fill="#F5B841"/><path d="M84 66c12-8 22-8 32-2" stroke="#D43B3B" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M112 58l8 6-9 5z" fill="#D43B3B"/></svg>',
+ loop:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><path d="M78 52a30 30 0 1 1 10 34" stroke="#1B62A6" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M72 38l16 14-18 9" stroke="#D43B3B" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M136 44l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z" fill="#F5B841"/></svg>',
+ slow:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><rect x="34" y="30" width="96" height="52" rx="12" fill="#fff" stroke="#123A63" stroke-width="2"/><path d="M50 48h60M50 62h40" stroke="#1B62A6" stroke-width="4" stroke-linecap="round"/><path d="M74 82l-8 14 20-14z" fill="#fff" stroke="#123A63" stroke-width="2"/><circle cx="156" cy="56" r="18" fill="#F5B841"/><path d="M150 56h12M156 50v12" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>',
+ differ:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="50" cy="54" r="13" fill="#F2C9A0"/><path d="M28 118c0-16 10-27 22-27s22 11 22 27" fill="#D43B3B"/><path d="M44 52l4 4 8-8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="100" cy="54" r="13" fill="#F2C9A0"/><path d="M78 118c0-16 10-27 22-27s22 11 22 27" fill="#1B62A6"/><circle cx="150" cy="54" r="13" fill="#F2C9A0"/><path d="M128 118c0-16 10-27 22-27s22 11 22 27" fill="#F5B841"/><path d="M144 60c4 4 8 4 12 0" stroke="#123A63" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+ safe:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><circle cx="62" cy="86" r="13" fill="#F2C9A0"/><path d="M40 120c0-14 10-24 22-24s22 10 22 24" fill="#F5B841"/><circle cx="142" cy="54" r="14" fill="#F2C9A0"/><path d="M118 120c0-18 11-30 24-30s24 12 24 30" fill="#1B62A6"/><path d="M118 78l-24 18" stroke="#F2C9A0" stroke-width="9" stroke-linecap="round"/><rect x="98" y="16" width="24" height="24" rx="6" fill="#D43B3B"/><path d="M110 22v12M104 28h12" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>',
+ door:'<svg class="ill" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="198" height="128" rx="14" fill="#EAF2FA" stroke="#D8E3EE"/><rect x="70" y="20" width="60" height="100" rx="4" fill="#fff" stroke="#123A63" stroke-width="3"/><circle cx="120" cy="72" r="3" fill="#123A63"/><circle cx="46" cy="66" r="12" fill="#F2C9A0"/><path d="M26 116c0-14 9-24 20-24s20 10 20 24" fill="#1B62A6"/><circle cx="154" cy="66" r="12" fill="#F2C9A0"/><path d="M134 116c0-14 9-24 20-24s20 10 20 24" fill="#D43B3B"/><path d="M60 44h20M120 44h20" stroke="#BFD3E8" stroke-width="3" stroke-dasharray="4 4"/></svg>'
+ };
+
+ var QS = [
+ {cat:'赛场后勤', icon:'water', q:'比赛当天，一位特奥运动员跑完后满头大汗，正在四处找水。作为志愿者，最合适的做法是？',
+  opts:['先站在一旁，等工作人员来处理','主动递上饮用水和运动毛巾，并留意他是否还需要别的帮助','立刻带他去医务室检查','把自己的水留着，先去别处看看'], a:1,
+  exp:'培训资料提到，后勤工作包括分发饮用水和服装、递送运动毛巾、看管物品等；称职的志愿者会主动发现需要帮忙的地方。'},
+ {cat:'加油鼓劲', icon:'cheer', q:'运动员站在起跑线上，看上去有些紧张。你在场边怎样做最能帮到他？',
+  opts:['保持安静，完全不发出声音','大声指出他动作中的所有问题','热情地为他加油鼓劲，帮助他建立信心','替他向裁判申请退出比赛'], a:2,
+  exp:'资料指出，在场边为特奥运动员加油鼓劲，可以激发他们的热情和自信，让他们真正体验特奥运动的快乐。'},
+ {cat:'成为朋友', icon:'chat', q:'一位运动员赛前一直低着头不说话，看起来很紧张。哪种做法更合适？',
+  opts:['不停追问“你是不是很害怕”','主动和他聊天谈心，慢慢缓解紧张，和他成为朋友','让他一个人在角落里待着','拿他和其他运动员作比较'], a:1,
+  exp:'资料提到，志愿者可以通过和运动员聊天谈心，缓解他们的紧张情绪，并且和运动员们成为朋友。'},
+ {cat:'沟通态度', icon:'equal', q:'你陪一位智障学生参加活动，下面哪种交流方式最恰当？',
+  opts:['站在他面前俯视，并快速下达指令','蹲下来与他平视、平等交流，并先了解他的意愿','替他决定所有事情，不必询问他','如果他不配合，就反复强制要求他执行'], a:1,
+  exp:'资料强调：与智障学生站在同一个平台而不是俯视他们；态度友好耐心、了解其意愿、不强求执行命令。'},
+ {cat:'语言技巧', icon:'demo', q:'你要教一位运动员一个新动作，怎样说更容易被理解？',
+  opts:['用专业术语把原理讲得越详细越好','语言简单明了，一边说一边做示范','语速越快越好，节省时间','只说一次，让他自己慢慢领悟'], a:1,
+  exp:'资料中的志愿行为技巧要求：语言简单明了，不用深奥词汇；做事之前示范很重要，要一边说一边做，讲做结合。'},
+ {cat:'反复练习', icon:'loop', q:'运动员练了好几遍还是记不住动作，你会怎么做？',
+  opts:['责备他不够认真','用“小步子、多循环”的方法反复练习，并不断鼓励他','干脆放弃，让他去做别的活动','一次性把整套动作全部讲完'], a:1,
+  exp:'资料建议反复练习、强化记忆，采用小步子多循环的方法；同时用鼓励语言或小奖品激发兴趣。'},
+ {cat:'语速控制', icon:'slow', q:'一位运动员理解速度较慢，你讲解活动规则时应该？',
+  opts:['语速放缓，每句慢慢说，并重复几次','用很快的语速多说几遍','只说一遍，声音越大越好','让其他志愿者替你讲'], a:0,
+  exp:'资料要求语言缓和、语速不能太快，每一句要慢慢说、重复说几次。'},
+ {cat:'区别对待', icon:'differ', q:'一位性格胆怯的学生和一位很热情的学生参加同一活动，你会？',
+  opts:['对所有学生使用完全相同的方式','根据学生不同特点区别对待，对胆怯的学生多给耐心和鼓励','只关注那位热情的学生','让他们自己解决，不参与'], a:1,
+  exp:'资料提到，不同的学生要不同的对待，例如友好型、胆怯型、自闭型等。'},
+ {cat:'安全准则', icon:'safe', q:'活动中，一位运动员意外摔倒。按照安全准则，你首先应该？',
+  opts:['立刻自己扶起他，让比赛继续进行','先确保运动员安全，并立即寻求工作人员帮助','先拍照记录现场情况','让其他运动员过来帮忙'], a:1,
+  exp:'资料规定：发生意外情况时，应在确保运动员安全的前提下，立即寻求工作人员的帮助。'},
+ {cat:'安全边界', icon:'door', q:'活动结束后，一位运动员邀请你单独去一个封闭的房间聊天。从安全准则考虑，比较妥当的是？',
+  opts:['欣然同意，两个人交流更深入','婉拒，尽量避免与特奥运动员两人单独处于室内','关上门但开着窗就可以','让其他志愿者在门外等'], a:1,
+  exp:'资料明确：志愿者尽量不要和特奥运动员两人单独处于室内。'}
+ ];
+
+ function cheers(s){
+  if(s===10) return '满分！你已把做好特奥志愿者的要领全部装进心里，随时可以上岗啦！';
+  if(s===9) return '太出色了！只差一点点就满分，你对志愿服务的理解非常到位。';
+  if(s===8) return '很棒！你已经是一位知识扎实的特奥志愿者了。';
+  if(s===7) return '不错！关键要点都掌握了，再看一遍错题就更稳了。';
+  if(s===6) return '合格！你已具备做好特奥志愿者的基础知识，为你勇敢尝试点赞！';
+  if(s===5) return '差一点就合格啦！回看解析再挑战一次，你一定可以。';
+  if(s===4) return '继续加油！复习一下志愿行为技巧和安全准则，会有明显进步。';
+  if(s===3) return '每一次了解都值得肯定。建议回到说明资料再看一遍，然后重新挑战。';
+  if(s===2) return '别灰心，勇敢尝试本身就是胜利。慢慢来，再读一遍资料。';
+  if(s===1) return '没关系，从零开始了解也是一种收获。看看解析，再来一次。';
+  return '勇敢尝试就是胜利。先看看答案解析，再重新挑战吧。';
+ }
+
+ var L=['A','B','C','D'], i=0, score=0, locked=false;
+ var $=function(id){return document.getElementById(id);};
+ function view(id){['home','quiz','result'].forEach(function(v){$(v).hidden=(v!==id);});window.scrollTo(0,0);}
+ function buildAll(){
+  var h='';
+  QS.forEach(function(it,n){
+   h+='<div><b>'+(n+1)+'. '+it.q+'</b><br>'+it.opts.map(function(o,j){return L[j]+'. '+o;}).join('　')+
+      '<br><b>正确答案：'+L[it.a]+'</b>　'+it.exp+'</div>';
+  });
+  $('answerAll').innerHTML=h;
+ }
+ function render(){
+  var it=QS[i]; locked=false;
+  $('cat').textContent='情境题 '+(i+1)+' / 10';
+  $('fill').style.width=(i/10*100)+'%';
+  $('score').textContent=score;
+  $('ill').innerHTML=ILL[it.icon]||'';
+  $('qcat').textContent=it.cat;
+  $('qtitle').textContent=it.q;
+  var box=$('opts'); box.innerHTML='';
+  it.opts.forEach(function(t,j){
+   var b=document.createElement('button'); b.className='opt'; b.type='button';
+   b.innerHTML='<span class="k">'+L[j]+'</span><span>'+t+'</span>';
+   b.addEventListener('click',function(){answer(j,b);});
+   box.appendChild(b);
+  });
+  $('fb').className='fb'; $('next').hidden=true;
+ }
+ function answer(c,btn){
+  if(locked)return; locked=true;
+  var it=QS[i], right=it.a, all=$('opts').children, j;
+  for(j=0;j<all.length;j++) all[j].disabled=true;
+  if(c===right){score++;btn.classList.add('correct');}
+  else{btn.classList.add('wrong');all[right].classList.add('correct');}
+  $('score').textContent=score;
+  var fb=$('fb'); fb.className='fb show '+(c===right?'ok':'no');
+  $('verdict').textContent=c===right?'回答正确！':'再想想～';
+  $('exp').textContent=(c===right?'':'正确答案是 '+L[right]+'。')+it.exp;
+  $('next').textContent=(i===9)?'查看结果 →':'下一题 →';
+  $('next').hidden=false; $('next').focus();
+ }
+ function next(){if(i<9){i++;render();}else result();}
+ function result(){
+  view('result'); $('fill').style.width='100%';
+  var pass=score>=6;
+  $('badge').className='badge '+(pass?'pass':'fail');
+  $('badge').textContent=pass?'合格 ✓':'继续加油';
+  $('final').textContent=score;
+  $('quote').textContent=cheers(score);
+  var wrong=[]; QS.forEach(function(it,n){if(wrongSel[n]!==undefined&&wrongSel[n]!==it.a)wrong.push(n);});
+  if(wrong.length){
+   var h=''; wrong.forEach(function(n){h+='<div class="ri"><b>'+(n+1)+'. '+QS[n].q+'</b><br>你的答案：'+L[wrongSel[n]]+'　正确答案：'+L[QS[n].a]+'</div>';});
+   $('reviewList').innerHTML=h; $('review').hidden=false;
+  }else{$('review').hidden=true;}
+ }
+ var wrongSel={};
+ function start(){i=0;score=0;wrongSel={};view('quiz');render();}
+
+ $('start').addEventListener('click',start);
+ $('retry').addEventListener('click',start);
+ $('next').addEventListener('click',next);
+ $('quit').addEventListener('click',function(){view('home');});
+ $('back').setAttribute('href','volunteer-zh.html#p=21');
+ document.addEventListener('keydown',function(e){
+  if($('quiz').hidden)return;
+  var k=e.key||e.keyCode;
+  if(!locked&&/^[1-4]$/.test(k)){var b=$('opts').children[+k-1];if(b)b.click();}
+  else if(!locked&&/^[a-d]$/i.test(k)){var b2=$('opts').children[L.indexOf(k.toUpperCase())];if(b2)b2.click();}
+  else if(locked&&(k==='Enter'||k==='ArrowRight'))next();
+ });
+ // 记录选项以便回顾
+ var origAnswer=answer;
+ answer=function(c,btn){wrongSel[i]=c;origAnswer(c,btn);};
+ buildAll(); view('home');
+})();
+</script>
+</body>
+</html>
